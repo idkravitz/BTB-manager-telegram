@@ -208,11 +208,11 @@ def current_ratios():
 
                 # Generate message
                 last_update = datetime.strptime(query[0][0], "%Y-%m-%d %H:%M:%S.%f")
-                query = sorted(query, key=lambda k: k[-1], reverse=True)
+                query = sorted(query, key=lambda k: k[-1])
 
                 m_list = [
                     f"\nLast update: `{last_update.strftime('%H:%M:%S %d/%m/%Y')}`\n\n"
-                    f"*Coin ratios compared to {current_coin} in decreasing order:*\n".replace(
+                    f"*Coin ratios compared to {current_coin} in ascending order:*\n".replace(
                         ".", "\."
                     )
                 ]
