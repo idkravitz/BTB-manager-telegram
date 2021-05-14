@@ -217,7 +217,7 @@ def update_reminder(self, message):
 
 
 def format_float(num):
-    return f"{num:g}"
+    return f"{num:0.8f}".rstrip("0").rstrip(".")
 
 
 def get_custom_scripts_keyboard():
