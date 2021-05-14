@@ -221,7 +221,7 @@ def current_ratios():
                     m_list.append(
                         f"*{coin[1]}*:\n"
                         f"\t\- Price: `{coin[2]}` {bridge}\n"
-                        f"\t\- Δ\(Ratio\): `{(coin[3] * 100)}%`\n\n".replace(".", "\.")
+                        f"\t\- Δ\(Ratio\): `{(coin[3]):0.4%}`\n\n".replace(".", "\.")
                     )
 
                 message = telegram_text_truncator(m_list)
