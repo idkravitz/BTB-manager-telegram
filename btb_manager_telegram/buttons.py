@@ -202,7 +202,7 @@ def current_ratios():
             # Get prices and ratios of all alt coins
             try:
                 cur.execute(
-                    f"""SELECT sh.datetime, p.to_coin_id, sh.other_coin_price, ( ( ( current_coin_price / other_coin_price ) - 0.001 * 5 * ( current_coin_price / other_coin_price ) ) - sh.target_ratio ) AS 'ratio_dict' FROM scout_history sh JOIN pairs p ON p.id = sh.pair_id WHERE p.from_coin_id='{current_coin}' AND p.from_coin_id = ( SELECT alt_coin_id FROM trade_history ORDER BY datetime DESC LIMIT 1) ORDER BY sh.datetime DESC LIMIT ( SELECT count(DISTINCT pairs.to_coin_id) FROM pairs WHERE pairs.from_coin_id='{current_coin}');"""
+                    f"""SELECT sh.datetime, p.to_coin_id, sh.other_coin_price, ( ( current_coin_price / other_coin_price ) * (1 - 0.001 * 3) - sh.target_ratio ) / sh.target_ratio AS 'ratio_dict' FROM scout_history sh JOIN pairs p ON p.id = sh.pair_id WHERE p.from_coin_id='{current_coin}' AND p.from_coin_id = ( SELECT alt_coin_id FROM trade_history ORDER BY datetime DESC LIMIT 1) ORDER BY sh.datetime DESC LIMIT ( SELECT count(DISTINCT pairs.to_coin_id) FROM pairs WHERE pairs.from_coin_id='{current_coin}');"""
                 )
                 query = cur.fetchall()
 
@@ -220,7 +220,7 @@ def current_ratios():
                     m_list.append(
                         f"*{coin[1]}*:\n"
                         f"\t\- Price: `{coin[2]}` {bridge}\n"
-                        f"\t\- Ratio: `{format_float(coin[3])}`\n\n".replace(".", "\.")
+                        f"\t\- Ratio: `{format_float(coin[3] * 100)}%`\n\n".replace(".", "\.")
                     )
 
                 message = telegram_text_truncator(m_list)
