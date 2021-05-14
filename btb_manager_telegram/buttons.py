@@ -141,7 +141,7 @@ def check_progress():
                         coin[4], "%Y-%m-%d %H:%M:%S.%f"
                     ).strftime("%H:%M:%S %d/%m/%Y")
                     m_list.append(
-                        (f"*{coin[0]}* {'- *First BUY*' if coin[3] is None else ''}\n" 
+                        (f"*{coin[0]}* {'- _*First BUY*_' if coin[3] is None else ''}\n" 
                         f"\t- Amount: `{format_float(coin[1])}` *{coin[0]}*\n"
                         f"\t- Price: `{round(coin[2], 2)}` *USD*\n" +
                         (f"\t- Change: {f'`{format_float(coin[3])}` *{coin[0]}*'}\n" if coin[3] is not None else "") +
