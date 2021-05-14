@@ -143,9 +143,9 @@ def check_progress():
                     m_list.append(
                         f"*{coin[0]}* {'- *First BUY*' if coin[3] is None else ''}\n" 
                         f"\t\- Amount: `{format_float(coin[1])}` *{coin[0]}*\n"
-                        f"\t\- Price: `{round(coin[2], 2)}` *USD*\n"
-                        f"\t\- Change: {f'`{format_float(coin[3])}` *{coin[0]}*'}\n" if coin[3] is not None else ""
-                        f"""\t\- Rel.Change: {f'`{"{:0.4f}%".format(coin[3]/(coin[1] - coin[3]) * 100)}`'}\n""" if coin[3] is not None else ""
+                        f"\t\- Price: `{round(coin[2], 2)}` *USD*\n" +
+                        (f"\t\- Change: {f'`{format_float(coin[3])}` *{coin[0]}*'}\n" if coin[3] is not None else "") +
+                        (f"""\t\- Rel.Change: {f'`{"{:0.4f}%".format(coin[3]/(coin[1] - coin[3]) * 100)}`'}\n""" if coin[3] is not None else "") +
                         f"\t\- Trade datetime: `{last_trade_date}`\n\n".replace(
                             ".", "\."
                         )
