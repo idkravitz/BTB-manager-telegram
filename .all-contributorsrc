@@ -79,6 +79,24 @@
         "ideas",
         "code"
       ]
+    },
+    {
+      "login": "sydekumf",
+      "name": "Florian Sydekum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3983052?v=4",
+      "profile": "https://github.com/sydekumf",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tntwist",
+      "name": "Nico L.",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6589385?v=4",
+      "profile": "https://github.com/tntwist",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
